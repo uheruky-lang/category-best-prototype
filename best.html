@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>냉장/냉동 베스트</title>
+<style>
+:root{
+  --red:#FF0038; --black:#111; --gray3:#333; --gray4:#666;
+  --gray10:#DDD; --gray12:#F4F4F4; --gray13:#FAFAFA; --blue:#0B83E6; --yellow:#FFA700;
+  --gnb-h:100px;
+  --title-h:77px;
+  --tabs-h:57px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#2f2f2f;color:var(--black);font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}
+button{font:inherit}
+.phone{width:375px;max-width:100vw;margin:0 auto;background:#fff;min-height:100vh;position:relative;padding-bottom:106px}
+.gnb-static{height:100px;background:#fff;position:sticky;top:0;z-index:100;overflow:hidden}
+.gnb-static img{display:block;width:375px;height:100px;object-fit:cover}
+.title-block{height:77px;background:#fff;padding:16px 16px 12px;position:sticky;top:100px;z-index:90;overflow:hidden}
+.title-block h1{margin:0;height:24px;font-size:20px;line-height:24px;font-weight:800;letter-spacing:-.5px;font-family:"Apple SD Gothic Neo",Pretendard,sans-serif}.title-block p{margin:5px 0 0;color:var(--gray4);font-size:14px;line-height:20px}
+.tabs-wrap{height:57px;background:#FAFAFA;border-top:1px solid #F4F4F4;border-bottom:1px solid #F4F4F4;position:sticky;top:177px;z-index:80;transition:transform .2s ease;overflow:hidden;margin-top:-1px}
+.tabs-wrap.hide{transform:translateY(-57px);pointer-events:none}
+.tabs{height:57px;display:flex;align-items:center;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 16px}.tabs::-webkit-scrollbar{display:none}
+.tab{height:32px;flex:0 0 auto;border:1px solid var(--gray10);border-radius:360px;background:#fff;color:var(--gray3);padding:0 12px;font-size:14px;line-height:30px;font-weight:400;white-space:nowrap}.tab.active{border-color:var(--red);background:rgba(255,0,56,.02);color:var(--red);font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;background:#fff}.card{min-width:0;border-bottom:1px solid var(--gray12);position:relative;padding-bottom:12px}.card:nth-child(odd){border-right:1px solid var(--gray12)}
+.rank-row{height:44px;padding:10px 12px 0 10px;display:flex;align-items:flex-start}.rank{width:24px;height:24px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:18px;font-weight:400}
+.img-box{width:100%;padding:10px 10px 12px}.img-box img{width:167px;height:167px;max-width:100%;object-fit:cover;display:block;background:#fff}
+.info-row{position:relative;padding:0 42px 0 16px}.product-name{min-width:0;font-size:15px;line-height:18px;color:#111;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.wish{position:absolute;right:12px;top:0;width:24px;height:24px;border:1px solid var(--gray10);border-radius:50%;background:#fff;color:#888;padding:0;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+.price{padding:6px 16px 0;font-size:20px;line-height:24px;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Pretendard,sans-serif}.price .discount{color:var(--red);margin-right:4px}.price .won{font-size:14px;font-weight:400}.empty-state{grid-column:1/-1;min-height:280px;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;background:#fff}
+.rating{height:20px;padding:2px 16px 6px;display:flex;align-items:center;gap:4px;font-size:12px;line-height:12px}.stars{color:var(--yellow);letter-spacing:-1px;font-size:12px}.reviews{color:var(--gray4)}
+.delivery,.benefit{font-size:14px;line-height:18px;color:var(--gray4);padding-left:16px}.delivery.blue{color:var(--blue)}.benefit b{color:var(--blue);font-weight:400}
+.footer{height:152px;background:var(--gray13);padding:16px;color:#999;text-align:center}.footer-links{font-size:13px;line-height:16px;color:#111;margin-bottom:24px}.footer-copy{font-size:10px;line-height:12px}
+.bottom-toolbar{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(375px,100vw);height:98px;background:#fff;z-index:130;border-top:1px solid #ededed;overflow:hidden;display:block}.bottom-toolbar img{display:block;width:100%;height:98px;object-fit:cover}
+.to-top{position:absolute;right:16px;bottom:114px;width:40px;height:40px;border:1px solid #ddd;border-radius:4px;background:#fff;font-size:25px}
+@media(max-width:374px){.phone{width:100%}.img-box img{width:calc(50vw - 21px);height:calc(50vw - 21px)}}
+</style>
+</head>
+<body>
+<main class="phone">
+  <a class="gnb-static" href="index.html" aria-label="메인으로 이동"><img src="assets/gnb_static.png" alt=""></a>
+  <section class="title-block"><h1>냉장/냉동 베스트</h1><p>최근 30일 판매 데이터를 기준으로 선정한 인기상품</p></section>
+  <nav class="tabs-wrap" id="tabsWrap" aria-label="세부카테고리"><div class="tabs" id="tabs"><button class="tab active" data-key="sausage">소세지/햄/베이컨</button><button class="tab" data-key="dumpling">만두</button><button class="tab" data-key="patty">동그랑땡/떡갈비</button></div></nav>
+  <section class="grid" id="grid"></section>
+  <footer class="footer"><div class="footer-links">로그인　|　PC버전　|　고객센터　|　셀러존　|　전체서비스</div><div class="footer-copy">11번가(주)는 통신판매중개자로서 오픈마켓 11번가의 거래당사자가<br>아니며, 입점판매자가 등록한 상품정보 및 거래에 대해<br>11번가(주)는 일체의 책임을 지지 않습니다.</div><button class="to-top" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button></footer>
+  <a class="bottom-toolbar" href="index.html" aria-label="메인으로 이동"><img src="assets/bottom_toolbar_static.png" alt=""></a>
+</main>
+<script>
+const productSets={
+  sausage:[
+    {name:'동원 통그릴 비엔나 1kg x 2봉',price:'28,910',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9436570525/B.webp?836831582',rating:'4.5',reviews:'7,202',delivery:'8월12일(수)도착',benefit:'1,958P'},
+    {name:'청정원 리치부어스트, 1.5kg, 1개',price:'20,900',discount:'29%',image:'https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/5688431645/B.webp?30717990',rating:'4.5',reviews:'9,562',delivery:'8월14일(금)도착',benefit:'1,632P'},
+    {name:'청정원 고소하고바삭한 베이컨 1kg, 1개',price:'24,900',discount:'21%',image:'https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/8200420220/B.webp?785640169',rating:'4.5',reviews:'273',delivery:'8월12일(수)도착',benefit:'1,212P'},
+    {name:'핫바 10개세트/후랑크 해물맛바 어묵 만두 딤섬',price:'5,810',discount:'3%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/529308181/B.webp?995182432',rating:'4.5',reviews:'2,707',delivery:'8월19일(수)도착',benefit:'527P'},
+    {name:'슈가데일 베이컨 (미국산) 슈거데일',price:'7,670',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/262319631/B.jpg?340000000',rating:'4.5',reviews:'1,333',delivery:'8월13일(목)도착',benefit:'643P'},
+    {name:'목우촌 주부9단 살코기햄 1kg',price:'10,110',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/2734560267/B.webp?194041607',rating:'5',reviews:'808',delivery:'8월14일(금)도착',benefit:'795P'},
+    {name:'후랑크소시지454g 부대찌개햄/민찌/콘킹/베이크드빈스/슈가데일',price:'3,640',discount:'6%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/48092428/B.jpg?728000000',rating:'4.5',reviews:'752',delivery:'8월13일(목)도착',benefit:'393P'},
+    {name:'삼호햄 스모크햄 1kg',price:'3,250',discount:'10%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/2708419381/B.webp?222503417',rating:'4.5',reviews:'345',delivery:'8월14일(금)도착',benefit:'369P'},
+    {name:'5K프라이스 스모킹델리햄 500g',price:'4,830',discount:'3%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8560800168/B.webp?194056347',rating:'4.5',reviews:'249',delivery:'8월14일(금)도착',benefit:'515P'},
+    {name:'리얼햄 1kg',price:'9,690',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8233800628/B.webp?594780665',rating:'4.5',reviews:'135',delivery:'8월14일(금)도착',benefit:'866P'}
+  ],
+  dumpling:[
+    {name:'[CJ제일제당] 왕교자 1.05KG X 3 + 수제진한김치만두 200G X 1',price:'23,930',discount:'21%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/pd/v2/6/1/1/6/5/2/gyzSd/8983611652_B.webp',rating:'4.5',reviews:'54',delivery:'8월18일(화)도착',benefit:'1,649P'},
+    {name:'해태 고향만두 820g, 3개',price:'19,900',discount:'36%',image:'https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/6358316168/B.webp?139734797',rating:'4.5',reviews:'2,186',delivery:'8월12일(수)도착',benefit:'1,562P'},
+    {name:'신세계푸드 얇은피 인생왕교자 1.05kg x 2개',price:'23,460',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8062464036/B.webp?406053733',rating:'4.5',reviews:'673',delivery:'8월12일(수)도착',benefit:'1,860P'},
+    {name:'만두명가 김설희 속꽉찬 김치왕만두 700g x 2팩',price:'13,500',discount:'23%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9382420024/B.webp?698657159',rating:'4.5',reviews:'355',delivery:'8월12일(수)도착',benefit:'1,142P'},
+    {name:'신세계푸드 호텔컬렉션 에센셜 호만두 짬뽕왕교자 315g X 4팩',price:'13,070',discount:'42%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8799207166/B.webp?877709715',rating:'4.5',reviews:'105',delivery:'8월12일(수)도착',benefit:'1,111P'},
+    {name:'신세계푸드 호텔컬렉션 명란왕교자 315g X 4팩',price:'13,070',discount:'42%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8799199078/B.webp?676673042',rating:'4.5',reviews:'245',delivery:'8월12일(수)도착',benefit:'1,111P'},
+    {name:'40년 전통 만두명가 고기만두 2봉+김치만두 2봉',price:'19,290',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9001326207/B.webp?250899361',rating:'4.5',reviews:'614',delivery:'8월12일(수)도착',benefit:'1,560P'},
+    {name:'동원 개성김치왕교자 1140g, 1개 + 개성왕교자 1140g, 1개',price:'20,900',discount:'38%',image:'https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/8151104391/B.jpg?467375283',rating:'4.5',reviews:'487',delivery:'8월12일(수)도착',benefit:'1,632P'},
+    {name:'올스탠다드 한입진한 만두 3종 1kg x3팩 (교자 1+ 김치손만두1 + 고기손만두1)',price:'22,020',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8966260873/B.webp?524089341',rating:'4.5',reviews:'2,129',delivery:'8월18일(화)도착',benefit:'1,532P'},
+    {name:'칠갑농산 대용량 고기손만두 1.3kg x 2봉',price:'19,280',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7292910117/B.webp?360003427',rating:'4.5',reviews:'3,194',delivery:'8월12일(수)도착',benefit:'1,559P'}
+  ],
+  patty:[
+    {name:'[삼촌식탁] 고기 동그랑땡 1kg x 2봉 (총2kg)',price:'11,950',discount:'12%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9179839626/B.webp?312783299',rating:'4.5',reviews:'1,606',delivery:'8월12일(수)도착',benefit:'1,030P'},
+    {name:'[삼촌식탁] 달콤 짭짤 갈비맛 산적 1kg, 2봉(총2kg)',price:'14,460',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9289803507/B.webp?47963991',rating:'4.5',reviews:'537',delivery:'8월12일(수)도착',benefit:'1,212P'},
+    {name:'고메 함박스테이크 152g,10개',price:'25,710',discount:'8%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/6462258406/B.png?100000000',rating:'4.5',reviews:'273',delivery:'8월13일(목)도착',benefit:'1,958'},
+    {name:'맘모스 떡산적 스테이크 2kg 1개 (60gX약33~34개입)',price:'11,730',discount:'9%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5164270223/B.jpg?224492157',rating:'4.5',reviews:'155',delivery:'8월13일(목)도착',benefit:'894P'},
+    {name:'피코크 직화구이 떡갈비 450g x 3개',price:'26,090',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8303857438/B.webp?944577723',rating:'4.5',reviews:'614',delivery:'8월12일(수)도착',benefit:'2,050P'},
+    {name:'프레시지 최현석 한돈한우 함박스테이크 180g 10팩 (1.8kg)',price:'73,200',discount:'1%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9477977726/B.webp?471417021',rating:'4.5',reviews:'45',delivery:'8월18일(화)도착',benefit:'4,622P'},
+    {name:'CJ고메 치즈함박스테이크 152g x 10개 냉장 간편식',price:'25,900',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9442157252/B.webp?868608586',rating:'4.5',reviews:'1324',delivery:'8월14일(금)도착',benefit:'1,771P'},
+    {name:'한성 해물경단 1kg 2개',price:'24,160',discount:'2%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9524931946/B.webp?912574401',rating:'4.5',reviews:'4187',delivery:'8월14일(금)도착',benefit:'4,153P'},
+    {name:'CJ 도톰 동그랑땡795g',price:'10,160',discount:'3%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8233710757/B.webp?1486172',rating:'4.5',reviews:'162',delivery:'없음',benefit:'901P'},
+    {name:'(삼양)임꺽정떡갈비 1.2k',price:'22,300',discount:'5%',image:'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9383317610/B.webp?307393264',rating:'4.5',reviews:'214',delivery:'8월18일(수)도착',benefit:'1,591P'}
+  ]
+};
+const grid=document.querySelector('#grid');
+function renderProducts(key){
+  const products=productSets[key]||[];
+  if(!products.length){grid.innerHTML='<div class="empty-state">상품 데이터 입력 예정</div>';return;}
+  grid.innerHTML=products.map((p,i)=>`<article class="card">
+    <div class="rank-row"><div class="rank">${i+1}</div></div>
+    <div class="img-box"><img src="${p.image}" alt="${p.name}"></div>
+    <div class="info-row"><div class="product-name">${p.name}</div><button class="wish" aria-label="관심상품 추가">♡</button></div>
+    <div class="price">${p.discount?`<span class="discount">${p.discount}</span>`:''}${p.price}<span class="won">원</span></div>
+    <div class="rating"><span class="stars">${p.rating==='5'?'★★★★★':'★★★★½'}</span><span class="reviews">${p.reviews}</span></div>
+    <div class="delivery blue">${p.delivery}</div>
+    <div class="benefit">11pay 최대 <b>${p.benefit}</b>적립</div>
+  </article>`).join('');
+}
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');t.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});renderProducts(t.dataset.key);}));
+const initialKey=new URLSearchParams(location.search).get('tab');
+const initialTab=[...tabs].find(t=>t.dataset.key===initialKey) || tabs[0];
+tabs.forEach(x=>x.classList.remove('active'));initialTab.classList.add('active');renderProducts(initialTab.dataset.key);
+const tabsWrap=document.querySelector('#tabsWrap');let lastY=window.scrollY;let ticking=false;
+window.addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=window.scrollY;const dy=y-lastY;if(y<10||dy<-2)tabsWrap.classList.remove('hide');else if(dy>4)tabsWrap.classList.add('hide');lastY=y;ticking=false;});},{passive:true});
+</script>
+</body>
+</html>
