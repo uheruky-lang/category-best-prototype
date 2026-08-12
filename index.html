@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PDP Mockup</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#2f2f2f}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}
+.phone{width:375px;max-width:100vw;margin:0 auto;background:#fff;position:relative;min-height:100vh;overflow:hidden}
+.pdp-shot{display:block;width:100%;height:auto}
+.best-hotspot{
+  position:absolute;
+  left:16px;
+  top:563px;
+  width:129px;
+  height:18px;
+  z-index:10;
+  display:block;
+  text-indent:-9999px;
+  overflow:hidden;
+  background:transparent;
+  -webkit-tap-highlight-color:transparent;
+}
+@media(max-width:374px){
+  .best-hotspot{
+    left:calc(16 / 375 * 100vw);
+    top:calc(563 / 375 * 100vw);
+    width:calc(129 / 375 * 100vw);
+    height:calc(18 / 375 * 100vw);
+  }
+}
+</style>
+</head>
+<body>
+<main class="phone">
+  <img class="pdp-shot" src="assets/index-shot.png" alt="상품상세 목업" />
+  <a class="best-hotspot" href="best.html?tab=patty" aria-label="동그랑땡/떡갈비 베스트 1위 보기">동그랑땡/떡갈비 베스트 1위</a>
+</main>
+</body>
+</html>
