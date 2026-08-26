@@ -25,7 +25,7 @@ jobs:
       - name: Build static bundle
         run: |
           mkdir -p _site/assets
-          cp index.html best.html _site/
+          cp index.html _site/
         
       - uses: actions/configure-pages@v5
         with:
