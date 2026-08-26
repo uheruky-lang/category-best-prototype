@@ -26,9 +26,7 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp index.html best.html _site/
-          curl -L --fail -o _site/assets/index-shot.png "https://www.figma.com/api/mcp/asset/487d7dca-af85-4e0d-b521-9ac28fc510bc.png"
-          curl -L --fail -o _site/assets/gnb_static.png "https://www.figma.com/api/mcp/asset/27b22595-1261-4ee3-bb8e-49af0602389e.png"
-          curl -L --fail -o _site/assets/bottom_toolbar_static.png "https://www.figma.com/api/mcp/asset/a5215658-faaf-4e14-a8d8-343e1a4d16f2.png"
+        
       - uses: actions/configure-pages@v5
         with:
           enablement: true
