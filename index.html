@@ -339,7 +339,9 @@ const PDP_IMAGE_DATA_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvAAAA
 const CATEGORIES = [
   { id:"donggrang", label:"동그랑땡/떡갈비" },
   { id:"mandu", label:"만두" },
-  { id:"sausage", label:"소세지/햄/베이컨" }
+  { id:"sausage", label:"소세지/햄/베이컨" },
+  { id:"tteok", label:"떡볶이/떡국" },
+  { id:"guk", label:"국/탕/찌개" }
 ];
 
 const PRODUCTS = {
@@ -378,6 +380,30 @@ const PRODUCTS = {
     { rank:8, name:"삼호햄 스모크햄 1kg", price:3250, pct:10, rating:4.5, reviews:345, delivery:"8월14일(금)도착", points:"369P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/2708419381/B.webp?222503417" },
     { rank:9, name:"5K프라이스 스모킹델리햄 500g", price:4830, pct:3, rating:4.5, reviews:249, delivery:"8월14일(금)도착", points:"515P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8560800168/B.webp?194056347" },
     { rank:10, name:"리얼햄 1kg", price:9690, pct:2, rating:4.5, reviews:135, delivery:"8월14일(금)도착", points:"866P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8233800628/B.webp?594780665" }
+  ],
+  tteok: [
+    { rank:1, name:"추억의 국민학교 떡볶이 오리지널 4팩", price:23120, pct:15, rating:4.7, reviews:517, delivery:"오늘 도착", points:"1,326P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8758429963/B.webp?626000657" },
+    { rank:2, name:"미미네 판밀떡 8봉 + 마늘 소스 8봉 (16인분)", price:34300, pct:null, rating:null, reviews:null, delivery:"오늘 도착", points:"1,885P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9561104650/B.webp?2203517" },
+    { rank:3, name:"미미네 오리지널 2봉 + 어묵많이 2봉 (12인분)", price:23430, pct:null, rating:4.8, reviews:10575, delivery:"오늘 도착", points:"1,341P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7040161390/B.webp?860032988" },
+    { rank:4, name:"간편식사 백제 우리쌀 즉석 떡국 163g 16ea", price:68010, pct:9, rating:null, reviews:null, delivery:"8월28일(금)도착", points:"3,570P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9571072060/B.webp?820267936" },
+    { rank:5, name:"3초떡볶이 보통맛 7팩", price:12970, pct:null, rating:4.7, reviews:27174, delivery:"8월28일(금)도착", points:"818P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5969929279/B.webp?591595748" },
+    { rank:6, name:"대한떡볶이 보통맛 3팩 + 김말이 1팩", price:8620, pct:null, rating:null, reviews:null, delivery:"8월28일(금)도착", points:"601P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9184869045/B.webp?919070848" },
+    { rank:7, name:"석관동떡볶이 오리지널 매운맛, 520g, 4개", price:25900, pct:null, rating:null, reviews:null, delivery:null, points:null, image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9061153599/B.webp?886300595" },
+    { rank:8, name:"휴게소 대표간식 소떡소떡 1.3kg (130gX10개)", price:13950, pct:null, rating:null, reviews:null, delivery:"8월28일(금) 이내 도착예정", points:"867P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9543748212/B.webp?645836540" },
+    { rank:9, name:"석관동 치즈쭈욱 떡볶이, 420g, 5개", price:29900, pct:null, rating:null, reviews:null, delivery:null, points:null, image:"https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/4857570751/B.webp?37755126" },
+    { rank:10, name:"농심 생생 납작 떡볶이면 258g 3개", price:16840, pct:50, rating:null, reviews:null, delivery:"9월1일(화) 이내 도착예정", points:"1,012P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9268692007/B.webp?53188189" }
+  ],
+  guk: [
+    { rank:1, name:"원팩쿠캣 점보 햄폭탄 부대찌개 1.5kg", price:15900, pct:null, rating:4.7, reviews:536, delivery:"오늘 도착", points:"965P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9412427936/B.webp?18703971" },
+    { rank:2, name:"사미헌 갈비탕 1kg, 4개", price:51900, pct:null, rating:null, reviews:null, delivery:null, points:null, image:"https://cdn.011st.com/11dims/resize/1000x1000/quality/75/11src/product/4848691977/B.webp?785024621" },
+    { rank:3, name:"한우대창과 소내장을 푸짐하게 넣은 한우대창전골 1kg +1kg", price:21050, pct:null, rating:4.6, reviews:118, delivery:"오늘 도착보장", points:"1,222P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9220053446/B.webp?212697266" },
+    { rank:4, name:"추추추어탕 500g 5팩 국내산 활미꾸라지를 그대로 갈아넣은 해썹인증 추어탕", price:18600, pct:null, rating:4.7, reviews:27652, delivery:"8월28일(금) 발송예정", points:"1,100P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/3175287566/B.webp?134250672" },
+    { rank:5, name:"명장 김치찌개 김치찜 250g x 10개", price:39800, pct:null, rating:null, reviews:null, delivery:"8월29일(토) 이내 도착예정", points:"2,270P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9569748240/B.webp?338561412" },
+    { rank:6, name:"바르온 삼계탕 1kg x 4팩", price:25030, pct:2, rating:4.3, reviews:27, delivery:"8월28일(금) 이내 도착예정", points:"1,421P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/8563284823/B.webp?423403850" },
+    { rank:7, name:"창동맛집 하누소 갈비탕 700g X 5팩", price:39270, pct:3, rating:5.0, reviews:15, delivery:"8월29일(토) 이내 도착예정", points:"2,133P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5886307881/B.webp?636676916" },
+    { rank:8, name:"[롯데백화점]하누소 뼈없는 갈비탕 700g 5팩", price:39440, pct:5, rating:4.6, reviews:7, delivery:"9월1일(화) 이내 도착예정", points:"2,142P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/7035633157/B.webp?276014180" },
+    { rank:9, name:"참도깨비 금강 육개장630g, 5개", price:26900, pct:null, rating:null, reviews:null, delivery:"9월1일(화) 이내 도착예정", points:"1,515P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9321889421/B.webp?618021887" },
+    { rank:10, name:"양평서울 한우해장국 700g x 8팩", price:38710, pct:2, rating:null, reviews:null, delivery:"8월28일(금) 이내 도착예정", points:"2,105P", image:"https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/9028848749/B.webp?621509123" }
   ]
 };
 CATEGORIES.forEach(c=>{
@@ -474,6 +500,9 @@ function renderLanding(catId, originId){
     const deliveryHtml = p.delivery
       ? `<div class="card-delivery date">${p.delivery}</div>`
       : "";
+    const pointHtml = p.points
+      ? `<div class="card-point">11pay 최대 <b>${p.points}</b>적립</div>`
+      : "";
     const priceHtml = p.pct
       ? `<span class="pct">${p.pct}%</span> ${won(p.price)}`
       : won(p.price);
@@ -490,7 +519,7 @@ function renderLanding(catId, originId){
         <div class="card-price">${priceHtml}</div>
         ${metaHtml}
         ${deliveryHtml}
-        <div class="card-point">11pay 최대 <b>${p.points}</b>적립</div>
+        ${pointHtml}
       </div>
     `;
   }).join("");
